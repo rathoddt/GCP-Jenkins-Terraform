@@ -1,11 +1,10 @@
-in.tf
-resource "google_storage_bucket" "GCS1"{
-  name="terraform-bkt-backend-02"
+resource "google_storage_bucket" "GCS1" {
+  name          = "terraform-bkt-backend-03"
   location      = "US"
   storage_class = "NEARLINE"
   labels = {
-   "env" = "test"
-   "dept" = "account"
+    "env"  = "test"
+    "dept" = "account"
   }
 
   uniform_bucket_level_access = false
@@ -16,13 +15,13 @@ resource "google_storage_bucket" "GCS1"{
     }
     action {
       storage_class = "COLDLINE"
-      type = "SetStorageClass"
+      type          = "SetStorageClass"
     }
   }
 
-retention_policy{
-   is_locked = true
-   retention_period = 864000
+  retention_policy {
+    is_locked        = true
+    retention_period = 864000
   }
 
 }
@@ -33,4 +32,4 @@ resource "google_storage_bucket_object" "picture" {
   source = "rock-n-lake.jpg"
   //bucket = "terraform-bkt-backend-02"
   bucket = google_storage_bucket.GCS1.name
-  }
+}
