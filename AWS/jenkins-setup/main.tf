@@ -2,7 +2,7 @@ terraform {
  required_providers {
      aws = {
          source = "hashicorp/aws"
-         version = "~>3.0"
+         version = "~>5.0"
      }
  }
 }
@@ -10,7 +10,7 @@ terraform {
 # Configure the AWS provider
 
 provider "aws" {
-    region = "us-east-2"
+    region = "us-east-1"
 }
 
 
@@ -100,12 +100,25 @@ resource "aws_route_table_association" "MyLab_Assn" {
     route_table_id = aws_route_table.MyLab_RouteTable.id
 }
 
-# Create an AWS EC2 Instance to host Jenkins
 
+# data "aws_ami" "ecs_optimized_ami" {
+#   most_recent = true
+#   owners      = ["amazon"]
+
+#   filter {
+#     name   = "name"
+#     values = ["amzn2-ami-ecs-hvm-2.0.202*-x86_64-ebs"]
+#   }
+# }
+
+# Create an AWS EC2 Instance to host Jenkins
 resource "aws_instance" "Jenkins" {
   ami           = var.ami
+  #ami                         = data.aws_ami.latest.id
+  #ami = data.aws_ami.ecs_optimized_ami.id
+  #ami = "ami-08a52ddb321b32a8c"
   instance_type = var.instance_type
-  key_name = "EC2"
+  key_name = "ec2-key"
   vpc_security_group_ids = [aws_security_group.MyLab_Sec_Group.id]
   subnet_id = aws_subnet.MyLab-Subnet1.id
   associate_public_ip_address = true
