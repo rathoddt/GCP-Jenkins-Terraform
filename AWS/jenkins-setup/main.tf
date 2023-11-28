@@ -114,17 +114,29 @@ resource "aws_route_table_association" "MyLab_Assn" {
 # Create an AWS EC2 Instance to host Jenkins
 resource "aws_instance" "Jenkins" {
   ami           = var.ami
-  #ami                         = data.aws_ami.latest.id
-  #ami = data.aws_ami.ecs_optimized_ami.id
-  #ami = "ami-08a52ddb321b32a8c"
   instance_type = var.instance_type
-  key_name = "ec2-key"
+  key_name = "getin"
   vpc_security_group_ids = [aws_security_group.MyLab_Sec_Group.id]
   subnet_id = aws_subnet.MyLab-Subnet1.id
   associate_public_ip_address = true
   user_data = file("./InstallJenkins.sh")
 
   tags = {
-    Name = "Jenkins-Server"
+    Name = "CI-Server"
+  }
+}
+
+
+resource "aws_instance" "AnsibleController" {
+  ami           = var.ami
+  instance_type = var.instance_type
+  key_name = "getin"
+  vpc_security_group_ids = [aws_security_group.MyLab_Sec_Group.id]
+  subnet_id = aws_subnet.MyLab-Subnet1.id
+  associate_public_ip_address = true
+  user_data = file("./InstallAnsibleCN.sh")
+
+  tags = {
+    Name = "Ansible-Server"
   }
 }
