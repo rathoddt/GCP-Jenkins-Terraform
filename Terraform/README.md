@@ -17,6 +17,15 @@ terraform --help
 terraform --help plan
 ```
 
+Manual installation
+```
+1 Download
+wget https://releases.hashicorp.com/terraform/1.9.3/terraform_1.9.3_linux_386.zip
+
+echo $PATH
+mv ~/Downloads/terraform /usr/local/bin/
+```
+
 
 Importing existing resource]
 ```
