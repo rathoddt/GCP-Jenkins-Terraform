@@ -1,4 +1,5 @@
 terraform-key.json
+tf-key.json
 
 # Local .terraform directories
 **/.terraform/*
