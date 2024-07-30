@@ -19,12 +19,24 @@ terraform --help plan
 ```
 
 Manual installation
+Method 1
 ```
-1 Download
+#Download
 wget https://releases.hashicorp.com/terraform/1.9.3/terraform_1.9.3_linux_386.zip
 
 echo $PATH
 mv ~/Downloads/terraform /usr/local/bin/
+```
+Method 2
+```
+#Alternative 
+#Downlaod to some dir e.g /home/dilip/terraform
+wget https://releases.hashicorp.com/terraform/1.9.3/terraform_1.9.3_linux_386.zip
+
+# edit .bash_profile
+PATH="$PATH:/home/dilip/terraform"
+
+$source .bash_profile
 ```
 
 ### 2) Gcloud SDK setup
