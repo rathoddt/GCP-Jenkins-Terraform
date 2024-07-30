@@ -18,7 +18,7 @@ terraform --help
 terraform --help plan
 ```
 
-Manual installation
+Manual installation  
 Method 1
 ```
 #Download
