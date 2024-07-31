@@ -57,6 +57,17 @@ sudo dnf install libxcrypt-compat.x86_64
 sudo dnf install google-cloud-cli
 ```
 
+
+### Enabling APIs
+- Cloud Resource Manager
+- Compute Engine API
+- Cloud storage
+
+
+### Setting up remote storage 
+Adding backend configuration
+
+
 Importing existing resource]
 ```
 terraform import google_cloud_run_v2_service.run-v2 serverless-gcp-391314/asia-southeast1/cloudrun-v2
