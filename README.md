@@ -9,3 +9,20 @@ gcloud auth list
 gcloud auth login `ACCOUNT`
 gcloud auth application-default login
 ```
+
+# Clean up
+
+```
+terraform destroy
+rm -rf ../01-VPC/.terraform*
+rm -rf ../01-VPC/terraform.tfstate*
+```
+
+## Top level blocks
+- resource
+- provider
+- terraform
+- variable
+- data
+- module
+- output
