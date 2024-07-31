@@ -2,5 +2,5 @@
 
 provider "google" {
   project = "terraform-poc-01"
-  region = "us-central1"
+  region  = "us-central1"
 }
