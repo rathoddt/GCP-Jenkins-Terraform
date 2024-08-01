@@ -1,5 +1,6 @@
 # Resource block 
 resource "google_compute_network" "vpc_network" {
+  project = "terraform-poc-01"
   name                    = "vpc-tf"
   auto_create_subnetworks = false
 }
@@ -13,7 +14,7 @@ resource "google_compute_subnetwork" "subnet-01" {
 
 resource "google_compute_subnetwork" "subnet-02" {
   provider = google.europe-west1
-  name          = "subnet-01"  
+  name          = "subnet-02"  
   ip_cidr_range = "10.132.0.0/20"
   network       = google_compute_network.vpc_network.id
 
