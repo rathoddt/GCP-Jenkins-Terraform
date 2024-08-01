@@ -29,4 +29,4 @@ rm -rf ../01-VPC/terraform.tfstate*
 
 ## Terraform states
 Desired states  - the state defined in terraform files
-Current state - the state of resouces deployed in the target env, e.g. GCP cloud
+Current state - the state of resouces deployed in the target env, e.g. GCP cloud. Its reference is contained in `terrraform.tfstate` file
