@@ -30,3 +30,12 @@ rm -rf ../01-VPC/terraform.tfstate*
 ## Terraform states
 Desired states  - the state defined in terraform files
 Current state - the state of resouces deployed in the target env, e.g. GCP cloud. Its reference is contained in `terrraform.tfstate` file
+
+### Terraform variable precedence
+# Variable Precendence
+- Priority-1: Any -var and -var-file options on the command line, in the order they are provided. 
+- Priority-2: Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
+- Priority-3: The terraform.tfvars.json file, if present.
+- Priority-4: The terraform.tfvars file, if present.
+- Priority-5: Environment variables
+- Priority-6: variables.tf
