@@ -1,9 +1,9 @@
 resource "google_compute_instance" "server-vm" {
   #Meta argument : count
   count = 2
-  name         = "web-server-01-${count.index}"
+  name         = "web-server-${count.index}"
   machine_type = var.machine_type
-  zone         = "us-central1-a"
+  zone         = data.google_compute_zones.available_zones.names[count.index]
   tags         = [tolist(google_compute_firewall.fw_ssh.target_tags)[0], tolist(google_compute_firewall.fw_http.target_tags)[0]]
   boot_disk {
     initialize_params {
