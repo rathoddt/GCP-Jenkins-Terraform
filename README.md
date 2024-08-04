@@ -39,3 +39,7 @@ Current state - the state of resouces deployed in the target env, e.g. GCP cloud
 - Priority-4: The terraform.tfvars file, if present.
 - Priority-5: Environment variables
 - Priority-6: variables.tf
+
+
+## Instance Group
+Group of VM instances managed as single entity
