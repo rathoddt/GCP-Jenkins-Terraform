@@ -31,15 +31,22 @@ resource "google_compute_region_backend_service" "lb-backend-service" {
 }
 
 
-resource "google_compute_url_map" "lb-url-map" {
+# resource "google_compute_url_map" "lb-url-map" {
+#   name            = "${local.name}-lb-url-map"
+#   default_service = google_compute_region_backend_service.lb-backend-service.self_link
+# }
+
+# Resource: Regional URL Map
+resource "google_compute_region_url_map" "lb-url-map" {
   name            = "${local.name}-lb-url-map"
   default_service = google_compute_region_backend_service.lb-backend-service.self_link
 }
 
+
 resource "google_compute_region_target_http_proxy" "my-lb-http-proxy" {
   region  = "${local.name}-my-lb-http-proxy"
   name    = "http-proxy"
-  url_map =google_compute_url_map.lb-url-map.id
+  url_map =google_compute_region_url_map.lb-url-map.id
 }
 
 

@@ -10,7 +10,7 @@ output "mylb_backend_service_self_link" {
 
 output "mylb_url_map_self_link" {
   description = "The self link of the URL map."
-  value       = google_compute_url_map.lb-url-map.self_link
+  value       = google_compute_region_url_map.lb-url-map.self_link
 }
 
 output "mylb_target_http_proxy_self_link" {
