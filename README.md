@@ -43,3 +43,14 @@ Current state - the state of resouces deployed in the target env, e.g. GCP cloud
 
 ## Instance Group
 Group of VM instances managed as single entity
+
+## Backend
+Google Cloud service that receives traffic from load balancer. e.g
+- Instance group
+- Cloud Run
+- App Engine
+- GKE
+- Cloud storage
+- Clouf Function
+- Backend external to GCP
+
