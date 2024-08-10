@@ -5,7 +5,7 @@ variable "gcp_project" {
 }
 
 variable "region" {
-  description = "Traget region"
+  description = "Target region"
   type        = string
   default     = "us-central1"
 }

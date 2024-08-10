@@ -15,7 +15,7 @@ resource "google_compute_subnetwork" "subnet-01" {
 
 
 resource "google_compute_subnetwork" "regional_proxy_subnet" {
-  name   = "${var.region}-regional_proxy_subnet"
+  name   = "${var.region}-regional-proxy-subnet"
   region = var.region
   #region        = "us-central1"
   ip_cidr_range = "10.0.0.0/24"
