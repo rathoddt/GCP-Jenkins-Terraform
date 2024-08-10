@@ -1,6 +1,6 @@
 # Terraform Output Values
 output "myapp1_mig_id" {
-  value = google_compute_region_instance_group_manager.myapp1.id 
+  value = google_compute_region_instance_group_manager.myapp1.id
 }
 
 output "myapp1_mig_instance_group" {

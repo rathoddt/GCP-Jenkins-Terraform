@@ -3,10 +3,10 @@ resource "google_compute_instance_template" "myapp1" {
   name        = "${local.name}-myapp1-template"
   description = "This template is used to create app server instances."
 
-  tags         = [
-                  tolist(google_compute_firewall.fw_ssh.target_tags)[0], 
-                  tolist(google_compute_firewall.fw_http.target_tags)[0]
-                ]
+  tags = [
+    tolist(google_compute_firewall.fw_ssh.target_tags)[0],
+    tolist(google_compute_firewall.fw_http.target_tags)[0]
+  ]
   instance_description = "MyApp1 VM instances"
   machine_type         = var.machine_type
   can_ip_forward       = false
@@ -18,9 +18,9 @@ resource "google_compute_instance_template" "myapp1" {
 
   // Create a new boot disk from an image
   disk {
-    source_image      = data.google_compute_image.my_image.self_link
-    auto_delete       = true
-    boot              = true
+    source_image = data.google_compute_image.my_image.self_link
+    auto_delete  = true
+    boot         = true
   }
 
 

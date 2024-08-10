@@ -1,5 +1,5 @@
 data "google_compute_zones" "available_zones" {
-    status = "UP"  
+  status = "UP"
 }
 
 # output "compute_zones" {
@@ -9,10 +9,10 @@ data "google_compute_zones" "available_zones" {
 
 #https://registry.terraform.io/providers/hashicorp/google/4.55.0/docs/data-sources/compute_image
 data "google_compute_image" "my_image" {
-#   family  = "debian-11"
-#   project = "debian-cloud"
+  #   family  = "debian-11"
+  #   project = "debian-cloud"
   # CentOs
-  project = "centos-cloud"  
+  project = "centos-cloud"
   family  = "centos-stream-9"
 
   # RedHat

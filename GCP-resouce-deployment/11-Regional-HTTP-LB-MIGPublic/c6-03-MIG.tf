@@ -1,8 +1,8 @@
 resource "google_compute_region_instance_group_manager" "myapp1" {
-  name                       = "${local.name}-myapp1-mig"
-  base_instance_name         = "${local.name}-myapp1"
-  region                     = var.region
-  distribution_policy_zones  = data.google_compute_zones.available_zones.names
+  name                      = "${local.name}-myapp1-mig"
+  base_instance_name        = "${local.name}-myapp1"
+  region                    = var.region
+  distribution_policy_zones = data.google_compute_zones.available_zones.names
 
   version {
     instance_template = google_compute_instance_template.myapp1.id
@@ -16,5 +16,5 @@ resource "google_compute_region_instance_group_manager" "myapp1" {
     initial_delay_sec = 300
   }
 
-#   target_size  = 2
+  #   target_size  = 2
 }
